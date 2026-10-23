@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1-Click AI Chat Harvester | Zero-Bloat Research Suite for ChatGPT, Claude & Gemini</title>
+  <meta name="description" content="The Zero-Bloat browser extension that turns ChatGPT, Claude, Gemini, DeepSeek, and Perplexity conversations into Notion-ready Markdown, Obsidian notes, and code blocks in 1 click. 100% offline and privacy-first.">
+  <meta name="author" content="Master Manikant Yadav">
+  <link rel="icon" type="image/png" href="assets/icon48.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="#" class="brand-logo">
+        <img src="assets/icon48.png" alt="1-Click AI Chat Harvester Logo" class="brand-icon">
+        <span>1-Click AI Chat Harvester</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#demo" class="nav-link">Live Demo</a>
+        <a href="#shortcuts" class="nav-link">Shortcuts</a>
+        <a href="#validation" class="nav-link">Notion Pass</a>
+        <a href="#community" class="nav-link">Community</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </nav>
+      <div class="header-cta-group">
+        <a href="https://addons.mozilla.org/en-US/firefox/addon/1-click-ai-chat-harvester/" target="_blank" rel="noopener noreferrer" class="btn-primary-sm">
+          <span>🦊</span> Install on Firefox
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="badge-pill">
+        <span>🚀</span> v1.6.1 Live on Firefox AMO • Manifest V3 • Zero-Bloat (0KB Idle RAM)
+      </div>
+      <h1 class="hero-title">Turn AI Conversations into Clean Markdown & Notion Notes in 1 Click</h1>
+      <p class="hero-subtitle">
+        The zero-bloat browser research suite for ChatGPT, Claude, Gemini, DeepSeek, and Perplexity. Extract single turns or entire dialogues with formatted tables, syntax code blocks, and LaTeX math. 100% offline and privacy-first.
+      </p>
+
+      <div class="hero-cta-row">
+        <a href="https://addons.mozilla.org/en-US/firefox/addon/1-click-ai-chat-harvester/" target="_blank" rel="noopener noreferrer" class="btn-hero-primary">
+          <span>🦊</span> Add to Firefox (Approved & Live)
+        </a>
+        <a href="https://chromewebstore.google.com/" target="_blank" rel="noopener noreferrer" class="btn-hero-secondary">
+          <span>🌐</span> Chrome Web Store
+        </a>
+        <a href="https://store.frankbase.com" target="_blank" rel="noopener noreferrer" class="btn-hero-secondary">
+          <span>⚡</span> FrankBase Store Pro
+        </a>
+      </div>
+
+      <!-- Interactive Dual-Pane Demo Showcase -->
+      <div id="demo" class="demo-container">
+        <div class="demo-topbar">
+          <div class="demo-dots">
+            <span class="demo-dot red"></span>
+            <span class="demo-dot yellow"></span>
+            <span class="demo-dot green"></span>
+          </div>
+          <div class="demo-title">live-preview: deepseek-r1-analysis.md</div>
+          <div class="demo-actions">
+            <button id="copy-demo-btn" class="btn-demo-action">📋 Copy Notion Markdown</button>
+          </div>
+        </div>
+
+        <div class="demo-split-view">
+          <!-- Left: Simulated AI Conversation -->
+          <div class="demo-pane source">
+            <span class="pane-badge chat">AI Conversation (DeepSeek R1 / Claude)</span>
+            <div class="chat-bubble user">
+              <div class="chat-meta">User Prompt:</div>
+              Explain GRPO (Group Relative Policy Optimization) with a Python snippet and formula for my research notes.
+            </div>
+            <div class="chat-bubble">
+              <div class="chat-meta">Assistant Response:</div>
+              <b>Group Relative Policy Optimization (GRPO)</b> eliminates the critic model to save GPU memory:
+              <br><br>
+              Formula: $$\mathcal{J}_{GRPO}(\theta) = \mathbb{E} \left[ \frac{1}{G}\sum_{i=1}^{G} \min\left(r_i A_i, \text{clip}(r_i) A_i \right) \right]$$
+              <br>
+              <code>def compute_grpo_loss(rewards): ...</code>
+            </div>
+          </div>
+
+          <!-- Right: Notion-Ready Markdown Output -->
+          <div class="demo-pane target">
+            <span class="pane-badge notion">1-Click Notion & Obsidian Output</span>
+            <pre class="markdown-preview-code"><code>---
+title: "GRPO (Group Relative Policy Optimization) Breakdown"
+platform: "DeepSeek R1"
+harvested_on: "2026-10-23T23:05:00+05:30"
+source: "https://chat.deepseek.com/research"
+tags: [ai-research, rl, deepseek]
+---
+
+# GRPO (Group Relative Policy Optimization) Breakdown
+
+> Harvested via 1-Click AI Chat Harvester (0KB Idle RAM)
+
+### Mathematical Formulation
+
+$$
+\mathcal{J}_{GRPO}(\theta) = \mathbb{E} \left[ \frac{1}{G}\sum_{i=1}^{G} \min\left(r_i A_i, \text{clip}(r_i, 1-\epsilon, 1+\epsilon) A_i \right) \right]
+$$
+
+### PyTorch Implementation
+
+```python
+import torch
+
+def compute_group_advantages(rewards: torch.Tensor, eps: float = 1e-8) -> torch.Tensor:
+    """Computes relative advantages normalized across group samples G."""
+    mean = rewards.mean(dim=-1, keepdim=True)
+    std = rewards.std(dim=-1, keepdim=True)
+    return (rewards - mean) / (std + eps)
+```
+
+| Parameter | Type | Role |
+| :--- | :--- | :--- |
+| `rewards` | Tensor | Sample outputs scored by rule-based verifier |
+| `eps` | float | Numerical stability epsilon ($10^{-8}$) |
+</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Superpowers Section -->
+  <section id="features" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill">Superpowers</span>
+        <h2 class="section-title">Engineered for Technical Researchers</h2>
+        <p class="section-desc">Zero bloat, zero background telemetry, and mathematically clean export formatting.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="f-icon-box">🎯</div>
+          <h3>42px Floating Turn Picker</h3>
+          <p>Never dump an entire 50-turn thread just for one code snippet. Press <code>Alt + T</code> to invoke the floating picker and extract single turns or custom ranges with ease.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="f-icon-box">📝</div>
+          <h3>100% Notion-Ready Markdown</h3>
+          <p>Validated by automated test suites. Guarantees clean block separation for H1-H4 headings, triple-backtick code fences with syntax highlighting, and GFM tables.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="f-icon-box">📐</div>
+          <h3>LaTeX Math Rendering</h3>
+          <p>Seamlessly preserves both inline math (<code>$...$</code>) and display math (<code>$$...$$</code>) for Obsidian, Notion, and KaTeX without corrupted backslashes.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="f-icon-box">🗂️</div>
+          <h3>Obsidian YAML Frontmatter</h3>
+          <p>Instantly pre-populate title, date, source URL, model name, and tags directly into Obsidian vaults for seamless second-brain PKM workflows.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="f-icon-box">⚡</div>
+          <h3>0KB Idle RAM Overhead</h3>
+          <p>Built with Manifest V3 Event-Driven architecture. Unlike bloatware extensions that consume 80MB of background RAM, our scripts unload instantly after export.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="f-icon-box">🌐</div>
+          <h3>Universal Multi-Engine</h3>
+          <p>Full native selector support for ChatGPT (GPT-4o, o1), Claude (3.5 Sonnet, Opus), Google Gemini, DeepSeek (V3, R1), Perplexity, Copilot, Grok, and web articles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notion Test Suite Validation Banner -->
+  <section id="validation" class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="validation-card">
+        <div class="val-content">
+          <h3>✅ Automated Notion Block Test Suite: 100% Passed</h3>
+          <p>
+            Verified against Notion's strict markdown ingestion parser across all 7 critical block structures: Headings (H1-H4), Syntax-Highlighted Code Fences, GFM Data Tables, KaTeX Display Math, Inline Equations, Nested Lists, and Blockquotes.
+          </p>
+        </div>
+        <div class="val-badge-score">7 / 7 PASS</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Keyboard Shortcuts Cheat Sheet -->
+  <section id="shortcuts" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill">Workflow Speed</span>
+        <h2 class="section-title">Instant Keyboard Shortcuts</h2>
+        <p class="section-desc">Designed for power users who keep their hands on the keyboard.</p>
+      </div>
+
+      <div class="shortcuts-table-wrapper">
+        <table class="shortcuts-table">
+          <thead>
+            <tr>
+              <th>Shortcut</th>
+              <th>Action</th>
+              <th>Target Scope</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><kbd class="kbd-badge">Alt + T</kbd></td>
+              <td>Open / Toggle Floating Turn Picker</td>
+              <td>ChatGPT, Claude, Gemini, DeepSeek tabs</td>
+            </tr>
+            <tr>
+              <td><kbd class="kbd-badge">Alt + C</kbd></td>
+              <td>1-Click Copy Clean Markdown to Clipboard</td>
+              <td>Active AI conversation thread</td>
+            </tr>
+            <tr>
+              <td><kbd class="kbd-badge">Alt + D</kbd></td>
+              <td>Instant Download <code>.md</code> File</td>
+              <td>Active AI conversation thread</td>
+            </tr>
+            <tr>
+              <td><kbd class="kbd-badge">Esc</kbd></td>
+              <td>Dismiss Turn Picker / Overlay</td>
+              <td>Any open overlay</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community & Issues Section -->
+  <section id="community" class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="community-box">
+        <h3>Join the Open Community & Discussions</h3>
+        <p>
+          Encountered a changed DOM selector on ChatGPT or Claude? Want support for a new AI engine or export format? We maintain an open issue tracker and community forum on GitHub.
+        </p>
+        <div class="community-btn-group">
+          <a href="https://github.com/Mastermanikant/1-click-ai-chat-harvester/issues" target="_blank" rel="noopener noreferrer" class="btn-hero-primary">
+            <span>🐛</span> Report an Issue / Broken Selector
+          </a>
+          <a href="https://github.com/Mastermanikant/1-click-ai-chat-harvester/discussions" target="_blank" rel="noopener noreferrer" class="btn-hero-secondary">
+            <span>💬</span> Join GitHub Discussions
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill">Got Questions?</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-grid">
+        <details class="faq-card" open>
+          <summary>Is my private chat data sent to any cloud server?</summary>
+          <p>
+            No. Absolutely zero bytes leave your computer. Every parsing, markdown formatting, and packaging step runs entirely in client-side memory using your browser's native JavaScript engine.
+          </p>
+        </details>
+
+        <details class="faq-card">
+          <summary>Does it inject watermarks or ads into exported notes?</summary>
+          <p>
+            Never. Unlike competing tools that inject "Exported via XYZ" promotional watermarks and referral links into your clean notes, 1-Click AI Chat Harvester produces 100% clean, pure, unpolluted Markdown.
+          </p>
+        </details>
+
+        <details class="faq-card">
+          <summary>How does the 42px Turn Picker work?</summary>
+          <p>
+            When viewing long dialogues on ChatGPT, Claude, Gemini, or DeepSeek, pressing <code>Alt + T</code> summons a lightweight floating widget that numbers each assistant and user turn. You can click any individual turn or choose a range to export only the essential insights.
+          </p>
+        </details>
+
+        <details class="faq-card">
+          <summary>Where can I get a Pro Lifetime License?</summary>
+          <p>
+            Every installation comes with a 30-Day Free Trial. Permanent hardware-locked Lifetime Solo ($5 / ₹499) and Researcher 3-PC ($10 / ₹999) licenses are available at the official <a href="https://store.frankbase.com" target="_blank" style="color: var(--accent-cyan);">FrankBase Store</a> with instant key delivery.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>1-Click AI Chat Harvester</h4>
+          <p style="max-width: 320px; color: var(--text-muted); font-size: 0.88rem;">
+            The zero-bloat browser research suite. Engineered for high-speed AI note taking, knowledge archival, and PKM workflows.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Official Stores</h4>
+          <ul>
+            <li><a href="https://addons.mozilla.org/en-US/firefox/addon/1-click-ai-chat-harvester/" target="_blank" rel="noopener noreferrer">Firefox Add-ons (Live AMO)</a></li>
+            <li><a href="https://chromewebstore.google.com/" target="_blank" rel="noopener noreferrer">Chrome Web Store</a></li>
+            <li><a href="https://microsoftedge.microsoft.com/" target="_blank" rel="noopener noreferrer">Microsoft Edge Add-ons</a></li>
+            <li><a href="https://store.frankbase.com" target="_blank" rel="noopener noreferrer">FrankBase Store Pro</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Community & Open Source Hub</h4>
+          <ul>
+            <li><a href="https://github.com/Mastermanikant/1-click-ai-chat-harvester" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
+            <li><a href="https://github.com/Mastermanikant/1-click-ai-chat-harvester/issues" target="_blank" rel="noopener noreferrer">Report an Issue</a></li>
+            <li><a href="https://github.com/Mastermanikant/1-click-ai-chat-harvester/discussions" target="_blank" rel="noopener noreferrer">GitHub Discussions</a></li>
+            <li><a href="mailto:connect@mastermanikant.com">Founder Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Ecosystem Platforms</h4>
+          <ul>
+            <li><a href="https://mastermanikant.com" target="_blank" rel="noopener noreferrer">Master Manikant Yadav</a></li>
+            <li><a href="https://store.frankbase.com" target="_blank" rel="noopener noreferrer">FrankBase Store</a></li>
+            <li><a href="https://frankpass.com" target="_blank" rel="noopener noreferrer">FrankPass Sovereign Security</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 <b>Master Manikant Yadav</b>. All Rights Reserved. Contact: <a href="mailto:connect@mastermanikant.com" style="color: var(--accent-cyan);">connect@mastermanikant.com</a>
+        </div>
+        <div style="font-size: 0.82rem; color: var(--text-muted);">
+          Independent utility. Not affiliated with OpenAI, Google, Anthropic, DeepSeek, or Microsoft.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast-msg">📋 Notion Markdown Copied to Clipboard!</div>
+
+  <script>
+    // Copy demo markdown to clipboard
+    const copyDemoBtn = document.getElementById('copy-demo-btn');
+    const toast = document.getElementById('toast');
+    if (copyDemoBtn) {
+      copyDemoBtn.addEventListener('click', async () => {
+        const codeElement = document.querySelector('.markdown-preview-code code');
+        if (codeElement) {
+          try {
+            await navigator.clipboard.writeText(codeElement.innerText);
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2200);
+          } catch (err) {
+            console.error('Clipboard copy failed:', err);
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

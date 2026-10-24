@@ -3,9 +3,9 @@
 > **The Zero-Bloat Research Suite:** Turn AI conversations into clean, Notion-ready Markdown, Obsidian notes with YAML frontmatter, and formatted archives in 1 click.
 
 [![Version](https://img.shields.io/badge/Version-v1.6.1-blue.svg?style=flat-square)](https://github.com/Mastermanikant/1-click-ai-chat-harvester/releases)
+[![Chrome Web Store](https://img.shields.io/badge/Chrome_Web_Store-Approved_%26_Live-green.svg?style=flat-square)](https://chromewebstore.google.com/detail/1-click-ai-chat-harvester/ijlcbkgpgnejogbclkjkpmpojbgnndde)
 [![Firefox AMO](https://img.shields.io/badge/Firefox_AMO-Approved_%26_Live-green.svg?style=flat-square)](https://addons.mozilla.org/en-US/firefox/addon/1-click-ai-chat-harvester/)
-[![Chrome Web Store](https://img.shields.io/badge/Chrome_Web_Store-Pending_Review-yellow.svg?style=flat-square)](https://chromewebstore.google.com/)
-[![Edge Add-ons](https://img.shields.io/badge/Edge_Add--ons-Submitted-blue.svg?style=flat-square)](https://microsoftedge.microsoft.com/)
+[![Edge Add-ons](https://img.shields.io/badge/Edge_Add--ons-Live-blue.svg?style=flat-square)](https://microsoftedge.microsoft.com/addons/detail/1click-ai-chat-harveste/innbdpajdhcmdklaklhgfcpjkakmkihe)
 [![Privacy](https://img.shields.io/badge/Privacy-100%25_Client--Side-brightgreen.svg?style=flat-square)](#-zero-telemetry-privacy-guarantee)
 [![GitHub Pages](https://img.shields.io/badge/Live_Showcase-GitHub_Pages-purple.svg?style=flat-square)](https://mastermanikant.github.io/1-click-ai-chat-harvester/)
 
@@ -26,9 +26,9 @@ Modern researchers, developers, students, and creators spend hours having deep, 
 
 | Browser / Store | Status | Link |
 | :--- | :--- | :--- |
-| **Mozilla Firefox (AMO)** | 🟢 **Approved & Live** | [Install from Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/1-click-ai-chat-harvester/) |
-| **Google Chrome (Web Store)** | 🟡 **Pending Review (v1.6.1)** | [Chrome Web Store](https://chromewebstore.google.com/) |
-| **Microsoft Edge (Add-ons)** | 🟡 **In Review** | [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/) |
+| **Google Chrome (Web Store)** | 🟢 **Approved & Live (v1.6.1)** | [Install from Chrome Web Store](https://chromewebstore.google.com/detail/1-click-ai-chat-harvester/ijlcbkgpgnejogbclkjkpmpojbgnndde) |
+| **Mozilla Firefox (AMO)** | 🟢 **Approved & Live (v1.6.1)** | [Install from Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/1-click-ai-chat-harvester/) |
+| **Microsoft Edge (Add-ons)** | 🟢 **Live** | [Install from Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/1click-ai-chat-harveste/innbdpajdhcmdklaklhgfcpjkakmkihe) |
 | **Direct Pro License** | ⚡ **FrankBase Store** | [store.frankbase.com](https://store.frankbase.com) |
 
 ---
